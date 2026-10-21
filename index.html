@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Space Fighter — Combate espacial</title>
+<link rel="stylesheet" href="style.css">
+<script type="importmap">
+{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"}}
+</script>
+</head>
+<body>
+<div id="game"></div>
+<div id="vignette"></div>
+<header class="topbar">
+  <div class="brand"><span class="brand-mark">✦</span><div><strong>SPACE FIGHTER</strong><small>COMBATE ESPACIAL // SIMULACIÓN</small></div></div>
+  <div class="top-status"><span class="dot"></span> SISTEMAS ONLINE <span id="fps">WEBGL</span></div>
+</header>
+<div class="hud">
+  <div class="left-panel panel">
+    <div class="panel-title">ESTADO DE LA NAVE</div>
+    <div class="stat"><span>INTEGRIDAD</span><b id="healthText">100%</b></div><div class="bar"><i id="healthBar"></i></div>
+    <div class="stat"><span>ENERGÍA DE IMPULSO</span><b id="boostText">100%</b></div><div class="bar blue"><i id="boostBar"></i></div>
+    <div class="stat"><span>CONTRAMEDIDAS</span><b id="flareText">5</b></div>
+    <div class="stat"><span>OBJETIVOS ELIMINADOS</span><b id="killsText">0</b></div>
+    <div class="mini-note">ESCANEO DE CONTACTOS <span class="online">ACTIVO</span></div>
+  </div>
+  <div class="right-panel panel">
+    <div class="panel-title">SISTEMA DE ARMAS</div>
+    <button id="weapon1" class="weapon active"><kbd>1</kbd><span><b>Cañón láser</b><small>DISPARO RÁPIDO</small></span><i>●</i></button>
+    <button id="weapon2" class="weapon"><kbd>2</kbd><span><b>Misiles guiados</b><small>SEGUIMIENTO</small></span><i>◆</i></button>
+    <div class="weapon-info" id="weaponInfo">LÁSER LISTO</div>
+  </div>
+  <div class="reticle"><span></span><i></i><b></b></div>
+  <div class="target-box" id="targetBox"><div>OBJETIVO <b id="targetName">HOSTIL</b></div></div>
+  <div class="warning" id="warning"><span>▲</span> ALERTA DE MISIL <small id="warningDetail">MISIL EN SEGUIMIENTO · APRETÁ E PARA LANZAR BENGALAS</small><div class="threat-direction" id="threatDirection">▲ MISIL</div></div>
+  <div class="lock-panel" id="lockPanel"><span class="lock-dot"></span><div><small>OBJETIVO FIJADO</small><b id="lockedName">SIN OBJETIVO</b><i id="lockedDistance">-- m</i></div><div class="lock-health"><span id="lockedHealth"></span></div></div>
+  <div class="bottom-center"><div class="speed"><span>VELOCIDAD</span><strong id="speed">420</strong><small>KM/H</small></div><div class="boost-label" id="boostLabel">IMPULSO DESACTIVADO</div></div>
+  <div class="bottom-left">SECTOR 07-G <span>•</span> ESPACIO PROFUNDO<br><small id="mission">MISIÓN: ELIMINÁ LOS CONTACTOS HOSTILES</small></div>
+  <div class="bottom-right"><div class="radar-title">RADAR TÁCTICO</div><canvas id="radar" width="150" height="150"></canvas></div>
+</div>
+<div class="start-screen" id="startScreen">
+  <div class="start-card">
+    <div class="eyebrow">SIMULADOR DE COMBATE // 01</div>
+    <h1>SPACE<span>FIGHTER</span></h1>
+    <p>El espacio no perdona errores. Controlá tu nave, administrá la energía y sobreviví al escuadrón enemigo.</p>
+    <div class="ship-select">
+      <label for="shipSelect">SELECCIÓN DE NAVE</label>
+      <select id="shipSelect"><option value="">Cargando modelos GLB…</option></select>
+      <div class="ship-details"><span id="shipModelCount">7 MODELOS DISPONIBLES</span><span id="shipBonus">CLASE: INTERCEPTOR</span></div>
+    </div>
+    <div class="start-features"><span>✦ VUELO 3D</span><span>✦ ARMAS</span><span>✦ CONTRAMEDIDAS</span></div>
+    <button id="startBtn">INICIAR MISIÓN <span>→</span></button>
+    <small>SE RECOMIENDA USAR TECLADO · CARGANDO MODELOS GLB</small>
+    <div id="loadStatus">Preparando simulación…</div>
+  </div>
+</div>
+<div class="toast" id="toast"></div>
+<script type="module" src="game.js"></script>
+</body>
+</html>

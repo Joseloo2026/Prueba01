@@ -1,0 +1,29 @@
+# Space Fighter — combate espacial 3D
+
+## Instalación
+1. Descomprimí el ZIP y subí todo su contenido a una carpeta de un hosting con PHP.
+2. Conservá `assets/` y sus modelos `.glb`.
+3. Abrí `index.html` desde la URL del hosting. También podés probarlo con `php -S localhost:8000`.
+4. Necesita conexión a internet para descargar Three.js desde jsDelivr.
+
+## Controles
+- `W` / `S`: inclinar el vuelo arriba/abajo.
+- `A` / `D`: virar a izquierda/derecha.
+- `SHIFT`: impulso.
+- `ESPACIO`: disparar el arma seleccionada.
+- `1`: cañón láser.
+- `2`: misiles guiados.
+- `E`: lanzar bengalas.
+- `TAB`: cambiar al siguiente objetivo y fijarlo.
+- `R`: fijar el objetivo más cercano.
+
+## Características
+- Radar táctico con enemigos y misiles entrantes.
+- Alerta visual y orientación aproximada del misil enemigo.
+- Fijación de objetivos con nombre, distancia e integridad.
+- Selector de nave que detecta todos los modelos `.glb` dentro de `assets`.
+- Los modelos disponibles también se usan para generar enemigos.
+- Las bengalas pueden atraer misiles enemigos si están dentro de su radio de detección.
+
+## Notas
+Prototipo arcade en primera persona. "Online" significa que se ejecuta desde una web; no incluye multijugador simultáneo. PHP lista los GLB y no gestiona las partidas. Si añadís modelos, deben ser archivos GLB válidos.
